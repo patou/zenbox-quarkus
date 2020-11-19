@@ -3,13 +3,14 @@ greeting:
   name: "quarkus"
 quarkus:
   datasource:
-    db-kind: h2
+    db-kind: postgresql
     jdbc:
-      url: jdbc:h2:mem:test
-      driver: org.h2.Driver
-
+      url: jdbc:postgresql://localhost:5432/confluent
+      driver: org.postgresql.Driver
+    username: postgres
+    password: postgres
   hibernate-orm:
     database:
       generation: drop-and-create
-      log:
-        sql: true
+    log:
+      sql: true

@@ -1,14 +1,20 @@
 package fr.zenika;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
+@Table(schema = "poc", name = "evenements")
 public class Evenement extends PanacheEntity {
-
-    private String nom;
+    private String name;
 
     private LocalDate debut;
 
@@ -17,19 +23,18 @@ public class Evenement extends PanacheEntity {
     public Evenement() {
     }
 
-    public Evenement(String nom, LocalDate debut, int duree) {
-        this.id = id;
-        this.nom = nom;
+    public Evenement(String name, LocalDate debut, int duree) {
+        this.name = name;
         this.debut = debut;
         this.duree = duree;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String nom) {
+        this.name = nom;
     }
 
     public LocalDate getDebut() {
