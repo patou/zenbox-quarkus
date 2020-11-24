@@ -22,6 +22,10 @@ public class Evenement extends PanacheEntity {
         this.duree = duree;
     }
 
+    public static Evenement findByNom(String nom) {
+        return find("nom", nom).firstResult();
+    }
+
     public String getNom() {
         return nom;
     }
